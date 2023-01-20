@@ -1,13 +1,10 @@
+import { apiKey } from './config.js';
+
 let weather = {
-    "apiKey": "API KEY GOES HERE",
+    "theApiKey": apiKey,
 
     fetchWeather: function(city) {
-        fetch(
-            "https://api.openweathermap.org/data/2.5/weather?q="
-             + city
-             + "&units=imperial&appid="
-             + this.apiKey
-        )
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + this.theApiKey)
             .then((response) => response.json())
             .then((data) => this.displayWeather(data));
     },
